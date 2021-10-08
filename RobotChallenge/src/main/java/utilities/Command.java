@@ -3,6 +3,12 @@ package utilities;
 import com.codechallenge.robot.Robot;
 import com.codechallenge.robot.RobotFactory;
 
+/**
+ * 
+ * Command class: execute user command and pass command to robot factory or a specified robot
+ * @author wangli
+ *
+ */
 public class Command {
 
 	private String cmd;
@@ -22,7 +28,7 @@ public class Command {
 				robot.setReport("Command doesn't make sense");
 			}
 		} else if (cmd.contains("ROBOT ")) {
-			RobotFactory.swithRobot(cmd);
+			RobotFactory.switchRobot(cmd);
 		} else if (cmd.equals("SHOW")) {
 			if (RobotFactory.getRobots().size() == 0) {
 				robot.setReport("No robot in this table");

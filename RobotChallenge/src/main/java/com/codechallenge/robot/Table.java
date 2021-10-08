@@ -7,6 +7,11 @@ import java.util.List;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
 
+/**
+ * Table class: Define a table
+ * @author wangli
+ *
+ */
 public class Table {
 
 	int row;
@@ -34,6 +39,9 @@ public class Table {
 		this.column = column;
 	}
 
+	/**
+	 * displayTable method: print all robots in a table to know the exact position and facing
+	 */
 	public void displayTable() {
 		ArrayList<Robot> robots = RobotFactory.getRobots();
 		if (!robots.isEmpty()) {

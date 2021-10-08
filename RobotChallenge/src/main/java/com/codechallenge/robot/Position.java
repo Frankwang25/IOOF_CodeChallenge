@@ -1,5 +1,11 @@
 package com.codechallenge.robot;
 
+/**
+ * Position: Define position of each robot
+ * 
+ * @author wangli
+ *
+ */
 public class Position {
 
 	int x;

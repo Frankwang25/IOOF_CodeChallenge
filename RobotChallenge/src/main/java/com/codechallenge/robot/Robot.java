@@ -1,5 +1,12 @@
 package com.codechallenge.robot;
 
+/**
+ * 
+ * Robot class: Define a robot
+ * 
+ * @author wangli
+ *
+ */
 public class Robot {
 	public enum Facing {
 		NORTH, EAST, SOUTH, WEST;
@@ -50,24 +57,6 @@ public class Robot {
 		this.report = report;
 	}
 
-	public void place(String placeArg) throws Exception {
-		String[] positionArgs = placeArg.split(",");
-		String message = "";
-		try {
-			int x = Integer.parseInt(positionArgs[0]);
-			int y = Integer.parseInt(positionArgs[1]);
-			message = RobotFactory.checkNewPosition(x, y, name);
-			report = message;
-			if (message.equals("")) {
-				facing = Facing.valueOf(positionArgs[2]);
-				position = new Position(x, y);
-				RobotFactory.addNewRobot(this);
-			}
-		} catch (Exception e) {
-			throw new Exception("Command doesn't make sense");
-		}
-
-	}
 
 	public void move() {
 		int x = position.getX();

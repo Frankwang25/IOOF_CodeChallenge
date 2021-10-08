@@ -11,6 +11,12 @@ import org.junit.Test;
 import com.codechallenge.RobotChallenge;
 import com.codechallenge.robot.RobotTestSuite;
 
+/**
+ * 
+ * Test case: check multi robots move conflict 
+ * @author wangli
+ *
+ */
 public class MultiRobotMoveConflict {
 
 	@Test

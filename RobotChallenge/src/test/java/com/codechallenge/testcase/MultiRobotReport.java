@@ -11,6 +11,12 @@ import org.junit.Test;
 import com.codechallenge.RobotChallenge;
 import com.codechallenge.robot.RobotTestSuite;
 
+/**
+ * 
+ * Test case: report position of the new added robot
+ * @author wangli
+ *
+ */
 public class MultiRobotReport {
 
 	@Test

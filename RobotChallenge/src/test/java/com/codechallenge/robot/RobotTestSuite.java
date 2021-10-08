@@ -25,6 +25,12 @@ import com.codechallenge.testcase.SingleRobotRotationsAndMoves;
 
 
 
+/**
+ * 
+ * RobotTestSuite: Read test data from a json file and pass data into test case
+ * @author wangli
+ *
+ */
 @RunWith(Suite.class)
 @SuiteClasses({ SingleRobotReport.class, SingleRobotMove.class, SingleRobotMoves.class, SingleRobotRotation.class,
 		SingleRobotRotations.class, SingleRobotRotationsAndMoves.class, SingleRobotFalling.class,
@@ -36,6 +42,9 @@ public class RobotTestSuite {
 	private JSONObject caseObject;
 	private final String testCasePath = "src/test/resources/TestData.json";
 
+	/**
+	 * RobotTestSuite constructor: read json file
+	 */
 	public RobotTestSuite() {
 		JSONParser parser = new JSONParser();
 		try {

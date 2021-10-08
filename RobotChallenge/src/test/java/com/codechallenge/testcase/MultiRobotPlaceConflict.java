@@ -11,6 +11,12 @@ import org.junit.Test;
 import com.codechallenge.RobotChallenge;
 import com.codechallenge.robot.RobotTestSuite;
 
+/**
+ * 
+ * Test case: place a new robot in a position occupied by another robot
+ * @author wangli
+ *
+ */
 public class MultiRobotPlaceConflict {
 
 	@Test

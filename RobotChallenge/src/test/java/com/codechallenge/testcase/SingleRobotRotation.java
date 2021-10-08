@@ -11,6 +11,12 @@ import org.junit.Test;
 import com.codechallenge.RobotChallenge;
 import com.codechallenge.robot.RobotTestSuite;
 
+/**
+ * 
+ * Test case: Check rotation of a robot
+ * @author wangli
+ *
+ */
 public class SingleRobotRotation {
 
 	@Test

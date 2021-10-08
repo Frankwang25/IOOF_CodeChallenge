@@ -11,6 +11,12 @@ import org.junit.Test;
 import com.codechallenge.RobotChallenge;
 import com.codechallenge.robot.RobotTestSuite;
 
+/**
+ * 
+ * Test case: switch to different robot
+ * @author wangli
+ *
+ */
 public class MultiRobotSwitch {
 
 	@Test

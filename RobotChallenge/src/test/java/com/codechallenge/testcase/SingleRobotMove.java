@@ -11,6 +11,12 @@ import org.junit.Test;
 import com.codechallenge.RobotChallenge;
 import com.codechallenge.robot.RobotTestSuite;
 
+/**
+ * 
+ * Test case: check robot move
+ * @author wangli
+ *
+ */
 public class SingleRobotMove {
 
 	@Test

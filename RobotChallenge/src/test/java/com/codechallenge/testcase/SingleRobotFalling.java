@@ -11,6 +11,12 @@ import org.junit.Test;
 import com.codechallenge.RobotChallenge;
 import com.codechallenge.robot.RobotTestSuite;
 
+/**
+ * 
+ * Test case: prevent fall out of table
+ * @author wangli
+ *
+ */
 public class SingleRobotFalling {
 
 	@Test

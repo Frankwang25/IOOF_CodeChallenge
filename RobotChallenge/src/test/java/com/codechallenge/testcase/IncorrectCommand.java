@@ -11,6 +11,12 @@ import org.junit.Test;
 import com.codechallenge.RobotChallenge;
 import com.codechallenge.robot.RobotTestSuite;
 
+/**
+ * 
+ * Test case: check incorrect commands
+ * @author wangli
+ *
+ */
 public class IncorrectCommand {
 
 	@Test

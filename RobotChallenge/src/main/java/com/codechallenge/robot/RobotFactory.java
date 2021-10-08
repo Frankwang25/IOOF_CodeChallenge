@@ -4,6 +4,11 @@ import java.util.ArrayList;
 
 import com.codechallenge.robot.Robot.Facing;
 
+/**
+ * RobotFactory: 
+ * @author wangli
+ *
+ */
 public class RobotFactory {
 
 	private static ArrayList<Robot> robots = new ArrayList<Robot>();
@@ -18,8 +23,8 @@ public class RobotFactory {
 		return table;
 	}
 
-	public static void setTable(Table table) {
-		RobotFactory.table = table;
+	public static void setTable(Table playTable) {
+		table = playTable;
 	}
 
 	public static ArrayList<Robot> getRobots() {
@@ -34,6 +39,11 @@ public class RobotFactory {
 		robots.clear();
 	}
 
+	/**
+	 * updateRobotFacing: update the direction of a specified robot in robot list
+	 * @param robotName
+	 * @param facing
+	 */
 	public static void updateRobotFacing(String robotName, Facing facing) {
 		for (Robot robot : robots) {
 			if (robot.getName().equalsIgnoreCase(robotName)) {
@@ -42,7 +52,11 @@ public class RobotFactory {
 		}
 	}
 
-	public static void swithRobot(String robotName) {
+	/**
+	 * switchRobot method: Switch to different robot according to the number of robot
+	 * @param robotName
+	 */
+	public static void switchRobot(String robotName) {
 		if (!robots.isEmpty() && robots.stream().anyMatch(r -> r.getName().equalsIgnoreCase(robotName))) {
 			Robot existingRobot = robots.stream().filter(r -> r.getName().equalsIgnoreCase(robotName)).findFirst()
 					.get();
@@ -55,10 +69,30 @@ public class RobotFactory {
 		}
 	}
 
+	/**
+	 * 
+	 * place method: place a new robot on the table
+	 * @param placeArg
+	 * @throws Exception: Catch any incorrect direction
+	 */
 	public static void place(String placeArg) throws Exception {
+		String[] positionArgs = placeArg.split(",");
+		String message = "";
+		int x = Integer.parseInt(positionArgs[0]);
+		int y = Integer.parseInt(positionArgs[1]);
 		int robotIndex = !robots.isEmpty() ? robots.size() + 1 : 1;
 		Robot newRobot = new Robot("Robot " + robotIndex, new Position(0, 0), Facing.NORTH, "");
-		newRobot.place(placeArg);
+		try {
+			message = RobotFactory.checkNewPosition(x, y, newRobot.getName());
+			newRobot.setReport(message); 
+			if (message.equals("")) {
+				newRobot.setFacing(Facing.valueOf(positionArgs[2]));
+				newRobot.setPosition(new Position(x, y));
+				addNewRobot(newRobot);
+			}
+		} catch (Exception e) {
+			throw new Exception("Command doesn't make sense");
+		}
 		if (newRobot.getReport().equals("")) {
 			robot = new Robot(newRobot.getName(), newRobot.getPosition(), newRobot.getFacing(), newRobot.getReport());
 		} else {
@@ -66,6 +100,15 @@ public class RobotFactory {
 		}
 	}
 
+	/**
+	 * 
+	 * checkTable method: check the boundary of table for preventing falling
+	 * @param x
+	 * @param y
+	 * @param robotName
+	 * @param table
+	 * @return
+	 */
 	public static String checkTable(int x, int y, String robotName, Table table) {
 		String message = "";
 		if (x < 0 || x > table.getColumn() - 1 || y < 0 || y > table.getRow() - 1) {
@@ -74,6 +117,14 @@ public class RobotFactory {
 		return message;
 	}
 
+	/**
+	 * 
+	 * checkNewPosition method: make sure there is no existing robot in the new position
+	 * @param x
+	 * @param y
+	 * @param robotName
+	 * @return
+	 */
 	public static String checkNewPosition(int x, int y, String robotName) {
 		String message = "";
 		message = checkTable(x, y, robotName, table);
