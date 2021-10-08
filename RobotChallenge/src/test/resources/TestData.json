@@ -1,0 +1,67 @@
+[
+	{
+		"caseName": "SingleRobotReport",
+		"input": "PLACE 0,0,NORTH;REPORT",
+		"output": "0,0,NORTH"
+	},
+	{
+		"caseName": "SingleRobotMove",
+		"input": "PLACE 0,0,NORTH;MOVE;REPORT",
+		"output": "0,1,NORTH"
+	},
+	{
+		"caseName": "SingleRobotMoves",
+		"input": "PLACE 1,1,EAST;MOVE;MOVE;REPORT",
+		"output": "3,1,EAST"
+	},
+	{
+		"caseName": "SingleRobotRotation",
+		"input": "PLACE 1,1,NORTH;LEFT;REPORT",
+		"output": "1,1,WEST"
+	},
+	{
+		"caseName": "SingleRobotRotations",
+		"input": "PLACE 1,1,NORTH;RIGHT;RIGHT;REPORT",
+		"output": "1,1,SOUTH"
+	},
+	{
+		"caseName": "SingleRobotRotationsAndMoves",
+		"input": "PLACE 1,1,EAST;LEFT;MOVE;RIGHT;MOVE;REPORT",
+		"output": "2,2,EAST"
+	},
+	{
+		"caseName": "SingleRobotFalling",
+		"input": "PLACE 1,1,EAST;MOVE;MOVE;MOVE;MOVE",
+		"output": "Stop! Robot 1 will fall out of the table."
+	},
+	{
+		"caseName": "MultiRobotReport",
+		"input": "PLACE 1,1,EAST;MOVE;PLACE 2,2,NORTH;MOVE;REPORT",
+		"output": "2,3,NORTH"
+	},
+	{
+		"caseName": "MultiRobotSwitch",
+		"input": "PLACE 1,1,EAST;MOVE;PLACE 2,2,NORTH;LEFT;MOVE;PLACE 3,3,NORTH;MOVE;ROBOT 2;REPORT",
+		"output": "1,2,WEST"
+	},
+	{
+		"caseName": "MultiRobotPlaceConflict",
+		"input": "PLACE 1,1,EAST;MOVE;PLACE 2,2,NORTH;MOVE;RIGHT;MOVE;PLACE 3,3,NORTH",
+		"output": "Position has been occupied by Robot 2"
+	},
+	{
+		"caseName": "MultiRobotMoveConflict",
+		"input": "PLACE 1,1,EAST;MOVE;PLACE 2,2,NORTH;MOVE;RIGHT;MOVE;PLACE 3,2,NORTH;MOVE",
+		"output": "Position has been occupied by Robot 2"
+	},
+	{
+		"caseName": "MultiRobotNotFound",
+		"input": "PLACE 1,1,EAST;MOVE;PLACE 2,2,NORTH;MOVE;RIGHT;MOVE;PLACE 3,2,SOUTH;MOVE;ROBOT 4",
+		"output": "Robot 4 cannot be found"
+	},
+	{
+		"caseName": "IncorrectCommand",
+		"input": "PLACE 1,EAST",
+		"output": "Command doesn't make sense"
+	}
+]
