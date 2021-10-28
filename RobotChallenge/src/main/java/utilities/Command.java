@@ -35,6 +35,10 @@ public class Command {
 			} else {
 				RobotFactory.getTable().displayTable();
 			}
+		} else if (cmd.equals("CHARGE")) { // New added feature
+			RobotFactory.charge();
+		} else if (cmd.contains("STRAIGHT")) { // New added feature
+			RobotFactory.straight(cmd);
 		} else {
 			if (RobotFactory.getRobots().size() == 0) {
 				robot.setReport("No robot in this table");

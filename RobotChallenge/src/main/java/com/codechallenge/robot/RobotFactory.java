@@ -137,4 +137,50 @@ public class RobotFactory {
 		return message;
 	}
 
+	
+	public static void charge() {
+		int currentX = robot.getPosition().getX();
+		int currentY = robot.getPosition().getY();
+		Facing currentFacing = robot.getFacing();
+		int tableX = table.getColumn()-1;
+		int tableY = table.getRow()-1;
+		switch (currentFacing) {
+		case NORTH:
+			keepMoving(tableY-currentY);
+			break;
+		case SOUTH:
+			keepMoving(currentY);
+			break;
+		case EAST:
+			keepMoving(tableX-currentX);
+			break;
+		case WEST:
+			keepMoving(currentX);
+			break;
+		}
+	
+	}
+	
+	public static void straight(String direction) {
+		int steps =0;
+		Facing oriFacing = robot.getFacing();
+		if(direction.contentEquals("STRAIGHTLEFT")) { 
+			steps = robot.getPosition().getX();
+			robot.setFacing(Facing.WEST);
+		}else if (direction.contentEquals("STRAIGHTRIGHT")) {
+			steps = table.getColumn()-1-robot.getPosition().getX();
+			robot.setFacing(Facing.EAST);
+		}
+		keepMoving(steps);
+		robot.setFacing(oriFacing);
+	}
+	
+	private static void keepMoving(int steps) {
+		for( int i=1; i<=steps; i++) {
+			robot.move();
+		}
+		
+	}
+	
+
 }
